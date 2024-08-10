@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" 
+      crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles/default-styles.css">
+    <script type="module" src="src/navbar.js"></script>
+    <script type="module" src="src/footer.js"></script>
+    <script type="module" src="src/header.js"></script>
+    <title>Documentation | D&D Spellbook</title>
+</head>
+<body>
+  <custom-header></custom-header>
+  <custom-nav-bar data-page="documentation"></custom-nav-bar>
+
+  <!-- Main Page -->
+  <main class="px-1 py-1 has-background-info">
+    <div class="has-background-info mr-1 p-1"> 
+      <div class="is-large p-4">
+        <!-- Row #1 -->
+        <div class="title has-text-light">D&D Spellfinder Documentation</div>
+
+        <!-- API -->
+        <div class="box mt-2">
+          <h2 class="subtitle has-text-weight-bold mb-1">API</h2>
+          <p>
+            For this, I am using the <a href="http://www.dnd5eapi.co/" target="blank" rel="noreferrer noopener">D&D 5e API</a>, and
+            <a href="http://www.dnd5eapi.co/docs" target="blank" rel="noreferrer noopener">here is 
+              the documentation</a>.
+          </p>
+        </div>
+
+        <!-- Features -->
+        <div class="box mt-2">
+          <h2 class="subtitle has-text-weight-bold mb-1">Major Features</h2>
+          <ol class="ml-4">
+            <li>Filter by class, spell level, and school of magic</li>
+            <li>Save to a spellbook</li>
+            <li>Input a character's level, class, ability scores and subclass to learn how many spells they can have and 
+              how many spellslots they have</li>
+            <li>Create, submit, and browse custom homebrew spells (I'll probably add my own...)</li>
+            </ol>
+        </div>
+
+        <!-- Interface -->
+        <div class="box mt-2">
+          <h2 class="subtitle has-text-weight-bold mb-1">Planned Interface</h2>
+          <p>
+            Please mind my handwriting...
+          </p>
+          <img src="images/planned-interface.png" alt="Planned interface. Trust me guys, its really cool">
+        </div>
+
+        <!-- Proposal -->
+        <div class="box mt-2">
+          <h2 class="subtitle has-text-weight-bold mb-1">
+            Proposal
+          </h2>
+          <p>
+            Unfortunately, I didn't put my proposal in the myCourses discussion post but it would've been this:
+          </p>
+          <br>
+          <p>
+            An app that is based around users creating a list of their Dungeons and Dragons Fith Eddition character's spells. 
+            They would be able to search for a list of spells, which would be displayed in the format they apear in the book, 
+            and add them to their character's list. They would also be able to create their own custom homebrew spells as well 
+            as browse homebrew spells that others submitted. Lastly they would also be able to plug in information about thier 
+            character like their class, level, and ability scores to have the app automatically calculate how many spells they 
+            can have and of what level.
+          </p>
+        </div>
+
+        <!-- Project Requierments -->
+        <div class="box mt-2">
+          <h2 class="subtitle has-text-weight-bold mb-1">
+            Project Requierments
+          </h2>
+          <a href="https://github.com/tonethar/IGME-330-Fall-2022/blob/main/projects/p1-checkpoint-2.md">
+            https://github.com/tonethar/IGME-330-Fall-2022/blob/main/projects/p1-checkpoint-2.md</a>
+        </div>
+
+        <!-- Noteworthy  -->
+        <div class="box mt-2">
+          <h2 class="subtitle has-text-weight-bold mb-1">
+            Noteworthy
+          </h2>
+          <p>
+            This app utilized many different aspects of Javascript, such as fetch(), the Bulma CSS framework, custom web 
+            components, faunt awesome icons, local storage, and cloud storage using Firebase.
+          </p>
+        </div>
+
+        <!-- Grading -->
+        <div class="box mt-2">
+          <h2 class="subtitle has-text-weight-bold mb-1">
+            Grading
+          </h2>
+          <p>
+            For this app, I believe I met every grading requierment with the exception of stylizing it slightly more. Outside 
+            of getting more unique and fitting CSS, my app is completely functional. There are no errors that run, my code is 
+            neat, commented, and descriptive. I have 4 web components (header, navbar, spellcard, and footer), I switched it from 
+            using XHR to fetch(), my spellcards are readable and neat, favoriting works both in saving locally and adding it to 
+            the cloud, and UI states are recorded whenever they are changed. I also created a community page to display every 
+            spell that's been chosen on anyone's spellbook using firebase.
+          </p>
+          <br>
+          <p>
+            In terms of going above and beyond, I added a full extra feature to calculate the spell list restrictions for your 
+            character, creating custom functions for each spellcasting class in D&D. I also made a long function to properly 
+            format the spell information to match exactly (outside of font and color) the way it would apear in a D&D book. 
+            Lastly, I made a system to automatically create a node in the firebase data when there was a spellcard shown that 
+            didn't exist yet so that if the API is ever updated or the data gets cleared, the app will still run fine without 
+            any errors. I also display the spell's pick count recorded on firebase even if its not on the community page. The 
+            API I'm using doesn't have a way to filter a class' spell list by spell level and school, so instead I had to make 
+            a system that got 2 differetn JSON objects, 1 of the class' entire spell list, and one of every spell in every spell 
+            list that matches the filter, and then make a new JSON object of just the overlapping spells.
+          </p>
+        </div>
+
+        <!-- ToDo -->
+        <div class="box mt-2">
+          <h2 class="subtitle has-text-weight-bold mb-1">
+            To Do
+          </h2>
+          <p>
+            The features that I would've also added if I had more time are as follows:
+            <ol class="ml-4">
+              <li>
+                The biggest one is I wanted to have a system where users could create custom homebrew spells and then submit 
+                them to the cloud (using firebase), then themself and others could browse homebrew spells and add them to their 
+                own spellbooks.
+              </li>
+              <li>
+                A system to collapse down the longer spell descriptions to make the page less long and a way to expand those 
+                descriptions when clicked on.
+              </li>
+              <li>
+                A method of sorting and ordering the search results (this seems more like a limitation of the API though).
+              </li>
+              <li>
+                Implimenting the same font, text color, and page color that D&D uses to make it feel like you're reading through 
+                the Player's Handbook.
+              </li>
+              <li>
+                Possibly a system to limit how many results you get when you search, but the app still ran pretty smoothly even 
+                when I searched for every spell at once, so its likely not nescesary.
+              </li>
+            </ol>
+          </p>
+        </div>
+        
+        <!-- Resources Utilized  -->
+        <div class="box mt-2">
+          <h2 class="subtitle has-text-weight-bold mb-1">Resources Utilized</h2>
+          <ol class="ml-4">
+            <li>
+              <a href="https://www.vippng.com/preview/hThRhTm_spell-book-png-magic-spell-book-png/">
+                https://www.vippng.com/preview/hThRhTm_spell-book-png-magic-spell-book-png/</a>
+                (It seems that the site is no longer online...)
+            </li>
+            <li>
+              <a href="https://javascript.info/fetch">https://javascript.info/fetch</a>
+            </li>
+            <li>
+              <a href="https://dmitripavlutin.com/fetch-with-json/">https://dmitripavlutin.com/fetch-with-json/</a>
+            </li>
+            <li>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/API/fetch">
+                https://developer.mozilla.org/en-US/docs/Web/API/fetch</a>
+            </li>
+            <li>
+              <a href="https://www.dndbeyond.com/classes">https://www.dndbeyond.com/classes</a>
+            </li>
+            <li>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt">
+                https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt</a>
+            </li>
+            <li>
+              <a href="https://bulma.dev/classes">https://bulma.dev/classes</a>
+            </li>
+          </ol>
+        </div>
+        <custom-footer></custom-footer>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

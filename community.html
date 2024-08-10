@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" 
+      crossorigin="anonymous" referrerpolicy="no-referrer" 
+    />
+    <link rel="stylesheet" href="styles/default-styles.css">
+    <script type="module" src="src/navbar.js"></script>
+    <script type="module" src="src/footer.js"></script>
+    <script type="module" src="src/header.js"></script>
+    <script type="module" src="src/spellcard.js"></script>
+    <script type="module" src="src/community.js"></script>
+    <title>Community | D&D Spellbook</title>
+    <style>
+      select#field-limit{
+        width:2.5rem;
+      }
+      #output{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+        grid-gap: 0.5em;
+      }
+    </style>
+</head>
+<body>
+  <custom-header></custom-header>
+  <custom-nav-bar data-page="community"></custom-nav-bar>
+
+  <!-- Main Page -->
+  <main class="px-1 py-1 has-background-info">
+    <div class="has-background-info mr-1 p-1"> 
+      <div class="is-large p-4">
+        <!-- Row #1 -->
+        <div class="title has-text-light">Community</div>
+
+        <div class="is-large p-4">
+          <!-- Row #2  -->
+          <div class="box mt-2">
+            <p>
+              See what spells other people have chosen to put into their spellbooks!
+            </p>
+          </div>
+        </div>
+
+        <!-- Row #3 -->
+        <div class="box has-background-info-dark"> 
+          <div class="is-large p-1">
+            <p id="element-status" class="has-text-warning mb-2">No spells yet</p>
+            <div id="output">
+              <!-- Spells go here! -->
+            </div>
+          </div>
+        </div>
+        <custom-footer></custom-footer>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

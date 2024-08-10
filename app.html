@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" 
+      crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles/default-styles.css">
+    <script type="module" src="src/navbar.js"></script>
+    <script type="module" src="src/footer.js"></script>
+    <script type="module" src="src/header.js"></script>
+    <script type="module" src="src/spellcard.js"></script>
+    <script type="module" src="src/app.js"></script>
+    <title>App | D&D Spellbook</title>
+    <style>
+      select#field-limit{
+        width:2.5rem;
+      }
+      #output{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+        grid-gap: 0.5em;
+      }
+    </style>
+</head>
+<body>
+  <custom-header></custom-header>
+  <custom-nav-bar data-page="app"></custom-nav-bar>
+
+  <main class="px-1 py-1 has-background-info">
+    <div class="mr-1 p-1">
+      <div class="is-large p-4">
+        <!-- Row 1 -->
+        <div class="title has-text-light">
+          Official Spell Search
+        </div>
+
+        <!-- Row 2 Instructions -->
+        <div class="box mt-2">
+            Search for any officially printed spell to add to your spellbook.
+            <ol class="ml-5">
+              <li>
+                Filter by level, class, and school of magic
+              </li>
+              <li>
+                Save it to your spellbook
+              </li>
+            </ol>
+        </div>
+
+        <!-- Calculated Character -->
+        <div class="box has-background-light" id="calc-chr">
+          This is where there would be information about the character you calculated if you calculated one.
+          Go <a href="./character-calculator.html">here</a> if you want to do that to start with.
+        </div>
+
+        <!-- Controls -->
+        <div id="box-controls" class="box columns">
+
+          <!-- Class -->
+          <span class="control column is-2 box mr-3 has-background-info-light rows">
+            <span class="subtitle has-text-weight-bold mb-1 row">Class</span>
+
+            <label>
+              <input type="radio" class="input-class row" name="input-class" id="btn-class-any" value="" checked=true>
+              Any
+            </label>
+
+            <label>
+              <input type="radio" class="input-class row" name="input-class" id="btn-class-bar" value="bard">
+              Bard
+            </label>
+
+            <label>
+              <input type="radio" class="input-class row" name="input-class" id="btn-class-cle" value="cleric">
+              Cleric
+            </label>
+
+            <label>
+              <input type="radio" class="input-class row" name="input-class" id="btn-class-dru" value="druid">
+              Druid
+            </label>
+
+            <label>
+              <input type="radio" class="input-class row" name="input-class" id="btn-class-pal" value="paladin">
+              Paladin
+            </label>
+
+            <label>
+              <input type="radio" class="input-class row" name="input-class" id="btn-class-ran" value="ranger">
+              Ranger
+            </label>
+
+            <label>
+              <input type="radio" class="input-class row" name="input-class" id="btn-class-sor" value="sorcerer">
+              Sorcerer
+            </label>
+
+            <label>
+              <input type="radio" class="input-class row" name="input-class" id="btn-class-war" value="warlock">
+              Warlock
+            </label>
+
+            <label>
+              <input type="radio" class="input-class row" name="input-class" id="btn-class-wiz" value="wizard">
+              Wizard
+            </label>
+          </span>
+
+          <!-- Spell Level -->
+          <span class="control column rows is-2 box mr-3 has-background-info-light">
+            <span class="subtitle has-text-weight-bold row mb-1">Spell Level</span>
+            <!-- Cantrip -->
+            <label>
+              <input type="checkbox" class="input-level row" id="btn-level-0" value="0">
+              Cantrip
+            </label>
+
+            <!-- 1 -->
+            <label>
+              <input type="checkbox" class="input-level row" id="btn-level-1" value="1">
+              1st level
+            </label>
+
+            <!-- 2 -->
+            <label>
+              <input type="checkbox" class="input-level row" id="btn-level-2" value="2">
+              2nd level
+            </label>
+
+            <!-- 3 -->
+            <label>
+              <input type="checkbox" class="input-level row" id="btn-level-3" value="3">
+              3rd level
+            </label>
+
+            <!-- 4 -->
+            <label>
+              <input type="checkbox" class="input-level row" id="btn-level-4" value="4">
+              4th level
+            </label>
+
+            <!-- 5 -->
+            <label>
+              <input type="checkbox" class="input-level row" id="btn-level-5" value="5">
+              5th level
+            </label>
+
+            <!-- 6 -->
+            <label>
+              <input type="checkbox" class="input-level row" id="btn-level-6" value="6">
+              6th level
+            </label>
+
+            <!-- 7 -->
+            <label>
+              <input type="checkbox" class="input-level row" id="btn-level-7" value="7">
+              7th level
+            </label>
+
+            <!-- 8 -->
+            <label>
+              <input type="checkbox" class="input-level row" id="btn-level-8" value="8">
+              8th level
+            </label>
+
+            <!-- 9 -->
+            <label>
+              <input type="checkbox" class="input-level row" id="btn-level-9" value="9">
+              9th level
+            </label>
+          </span>
+
+          <!-- School of Magic -->
+          <span class="control column rows is-2 box mr-3 has-background-info-light">
+            <span class="subtitle has-text-weight-bold row mb-1">School of Magic</span>
+
+            <!-- Abjuration -->
+            <label>
+              <input type="checkbox" class="input-school row" id="btn-school-abj" value="abjuration">
+              Abjuration
+            </label>
+
+            <!-- Conjuration -->
+            <label>
+              <input type="checkbox" class="input-school row" id="btn-school-con" value="conjuration">
+              Conjuration
+            </label>
+            
+            <!-- Divination -->
+            <label>
+              <input type="checkbox" class="input-school row" id="btn-school-div" value="divination">
+              Divination
+            </label>
+
+            <!-- Enchantment -->
+            <label>
+              <input type="checkbox" class="input-school row" id="btn-school-enc" value="enchantment">
+              Enchantment
+            </label>
+
+            <!-- Evocation -->
+            <label>
+              <input type="checkbox" class="input-school row" id="btn-school-evo" value="evocation">
+              Evocation
+            </label>
+
+            <!-- Illusion -->
+            <label>
+              <input type="checkbox" class="input-school row" id="btn-school-ill" value="illusion">
+              Illusion
+            </label>
+
+            <!-- Necromancy -->
+            <label>
+              <input type="checkbox" class="input-school row" id="btn-school-nec" value="necromancy">
+              Necromancy
+            </label>
+
+            <!-- Transmutation -->
+            <label>
+              <input type="checkbox" class="input-school row" id="btn-school-tra" value="transmutation">
+              Transmutation
+            </label>
+          </span>
+
+          <div class="control column is-2">
+            <button
+              id="btn-search"
+              class="button is-primary is-large"
+              title="Search for some spells!"
+            >
+              Search
+            </button>
+          </div>
+          <div class="control column is-2">
+            <button
+              id="btn-clear-all"
+              class="button is-warning is-large"
+              title="Clear all results!"
+            >
+              Clear
+            </button>
+          </div>
+
+        </div>
+        </div>
+      </div>
+
+      <!-- Row 3 Results -->
+      <div class="box has-background-info-dark">
+        <div class="is-large p-1">
+          <h2 class="subtitle has-text-weight-bold mb-2 mt-0 has-text-light">
+            My Results
+          </h2>
+          <p id="element-status" class="has-text-warning mb-2">
+            Click the "<b>Search</b>" button to view spells
+          </p>
+          <div id="output">
+            <!-- Search results go here -->
+          </div>
+        </div>
+      </div>
+      <custom-footer></custom-footer>
+  </main>
+</body>
+</html>

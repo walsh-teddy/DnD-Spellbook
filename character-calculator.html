@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" 
+      crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles/default-styles.css">
+    <script type="module" src="src/navbar.js"></script>
+    <script type="module" src="src/footer.js"></script>
+    <script type="module" src="src/header.js"></script>
+    <script type="module" src="src/character-calculator.js"></script>
+    <title>Character Calculator | D&D Spellbook</title>
+    <style>
+      select#field-limit{
+        width:2.5rem;
+      }
+    </style>
+</head>
+<body>
+  <custom-header></custom-header>
+  <custom-nav-bar data-page="character-calculator"></custom-nav-bar>
+
+  <main class="px-1 py-1 has-background-info">
+    <div class="mr-1 p-1">
+      <div class="is-large p-4">
+        <!-- Row 1 -->
+        <div class="title has-text-light">
+          Official Spell Search
+        </div>
+
+        <!-- Row 2 Instructions -->
+        <div class="box mt-2">
+            Calculate the ammount of spells your character can have
+            <ol class="ml-5">
+              <li>
+                Input your character's spellcasting class, level, and spellcasting ability score
+              </li>
+              <li>
+                This will be displayed on the app page and your spellbook
+              </li>
+            </ol>
+        </div>
+
+        <!-- Controls -->
+        <div id="box-controls" class="box columns">
+
+          <!-- Class -->
+          <span class="control column is-2 box mr-3 has-background-info-light rows">
+            <span class="subtitle has-text-weight-bold mb-1 row">Class</span>
+            <select id="field-class" class="select is-primary is-small row">
+                <option id="class-bar" value="bard">Bard</option>
+                <option id="class-cle" value="cleric">Cleric</option>
+                <option id="class-dru" value="druid">Druid</option>
+                <option id="class-pal" value="paladin">Paladin</option>
+                <option id="class-ran" value="ranger">Ranger</option>
+                <option id="class-sor" value="sorcerer">Sorcerer</option>
+                <option id="class-war" value="warlock">Warlock</option>
+                <option id="class-wiz" value="wizard">Wizard</option>
+              </select>
+          </span>
+
+          <!-- Character Level -->
+          <span class="control column rows is-2 box mr-3 has-background-info-light">
+            <span class="subtitle has-text-weight-bold row mb-1" 
+              title="This is just the levels in the spellcasting class. Multiclassing doesn't add to this number">
+              Character Level</span>
+            <select id="field-level" class="select is-primary is-small row">
+                <option id="level-1" value=1>1</option>
+                <option id="level-2" value=2>2</option>
+                <option id="level-3" value=3>3</option>
+                <option id="level-4" value=4>4</option>
+                <option id="level-5" value=5>5</option>
+                <option id="level-6" value=6>6</option>
+                <option id="level-7" value=7>7</option>
+                <option id="level-8" value=8>8</option>
+                <option id="level-9" value=9>9</option>
+                <option id="level-10" value=10>10</option>
+                <option id="level-11" value=11>11</option>
+                <option id="level-12" value=12>12</option>
+                <option id="level-13" value=13>13</option>
+                <option id="level-14" value=14>14</option>
+                <option id="level-15" value=15>15</option>
+                <option id="level-16" value=16>16</option>
+                <option id="level-17" value=17>17</option>
+                <option id="level-18" value=18>18</option>
+                <option id="level-19" value=19>19</option>
+                <option id="level-20" value=20>20</option>
+            </select>
+          </span>
+
+          <!-- Modifier -->
+          <span class="control column rows is-2 box mr-3 has-background-info-light">
+            <span class="subtitle has-text-weight-bold row mb-1"
+                title="Modifier for whatever ability score your class uses for spellcasting.
+                Wizards use intelligence, clerics use wisdom, ect">Spellcasting Ability Modifier</span>
+            <select id="field-modifier" class="select is-primary is-small row">
+                <option id="modifier-min-5" value=-5>-5</option>
+                <option id="modifier-min-4" value=-4>-4</option>
+                <option id="modifier-min-3" value=-3>-3</option>
+                <option id="modifier-min-2" value=-2>-2</option>
+                <option id="modifier-min-1" value=-1>-1</option>
+                <option id="modifier-plu-0" value=0 selected=true>+0</option>
+                <option id="modifier-plu-1" value=1>+1</option>
+                <option id="modifier-plu-2" value=2>+2</option>
+                <option id="modifier-plu-3" value=3>+3</option>
+                <option id="modifier-plu-4" value=4>+4</option>
+                <option id="modifier-plu-5" value=5>+5</option>
+            </select>
+          </span>
+
+          <div class="control column is-2">
+            <button
+              id="btn-calculate"
+              class="button is-primary is-large"
+              title="Calculate the possible spell list for your character"
+            >
+              Calculate
+            </button>
+          </div>
+          <div class="control column is-2">
+            <button
+              id="btn-clear-all"
+              class="button is-warning is-large"
+              title="Clear all results!"
+            >
+              Clear
+            </button>
+          </div>
+
+        </div>
+        </div>
+      </div>
+
+      <!-- Row 3 Results -->
+      <div class="box has-background-info-dark">
+        <div class="is-large p-1">
+          <h2 class="subtitle has-text-weight-bold mb-2 mt-0 has-text-light">
+            My Results
+          </h2>
+          <p id="element-status" class="has-text-warning mb-2">
+            Click the "<b>Calculate</b>" button to view results
+          </p>
+          <div id="output">
+            <!-- Search results go here -->
+          </div>
+        </div>
+      </div>
+      <custom-footer></custom-footer>
+  </main>
+</body>
+</html>
