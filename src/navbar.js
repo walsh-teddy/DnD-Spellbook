@@ -33,7 +33,7 @@ class CustonNavBar extends HTMLElement{
 
         // Store the different pages
         this.pages = [
-          {name:"home", href:"home.html", text:"Home"},
+          {name:"home", href:"index.html", text:"Home"},
           {name:"app", href:"app.html", text:"App"},
           {name: "character-calculator", href:"character-calculator.html", text:"Character Calculator"},
           {name:"spellbook", href:"spellbook.html", text:"Spellbook"},

@@ -52,7 +52,7 @@ class CustomHeader extends HTMLElement{
         const title = this.getAttribute('data-title') ? this.getAttribute('data-name') : "D&D Spellbook";
 
         this.body.innerHTML = `
-        <a class="navbar-item" href="home.html">
+        <a class="navbar-item" href="index.html">
             <i class="fas fa-book"></i>
         </a>
         <strong>
